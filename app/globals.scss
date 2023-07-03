@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./style/mixins/_mixins.scss";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+*,
+body {
+  @apply p-0 m-0 text-gray-800;
+  // color: rgb(var(--foreground-rgb));
+  // background: linear-gradient(
+  //     to bottom,
+  //     transparent,
+  //     rgb(var(--background-end-rgb))
+  //   )
+  //   rgb(var(--background-start-rgb));
+}
+
+.header {
+  @apply flex justify-center items-center px-10 py-5  bg-gray-100 fixed w-full;
+
+  @include mobile {
+    display: none;
+  }
+  @include desktop {
+    display: flex;
+  }
+
+  &-mobile {
+    @apply flex justify-between items-center px-2 py-5  bg-blue-100 fixed w-full;
+    @include desktop {
+      display: none;
+    }
+  }
+
+  .navbar {
+    @apply flex gap-[100px];
+  
+  }
+  .link {
+    @apply uppercase font-bold hover:text-blue-600 text-2xl;
+  }
+}
+
+.navbar-mobile {
+  @apply bg-blue-200 absolute  flex flex-col w-full h-[100vh] ;
+
+  .nav-header{
+    @apply py-5 px-10 flex justify-between
+  }
+
+  .navlink-container{
+    @apply flex flex-col w-full items-center gap-10;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
