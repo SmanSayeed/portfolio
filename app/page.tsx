@@ -1,9 +1,3 @@
-import Header from "./components/molecules/Header/Header";
-
 export default function Home() {
-  return (
-    <main>
-   
-    </main>
-  );
+  return <main>Under construction</main>;
 }
