@@ -1,3 +1,7 @@
 export default function Home() {
-  return <main>Under construction</main>;
+  return (
+    <main>
+      <div className="content">Under construction</div>
+    </main>
+  );
 }

@@ -30,7 +30,7 @@ body {
 }
 
 .header {
-  @apply flex justify-center items-center px-10 py-5  bg-gray-100 fixed w-full;
+  @apply flex justify-center items-center px-10 py-5  bg-gray-100 fixed w-full overflow-hidden;
 
   @include mobile {
     display: none;
@@ -48,25 +48,35 @@ body {
 
   .navbar {
     @apply flex gap-[100px];
-  
   }
   .link {
     @apply uppercase font-bold hover:text-blue-600 text-2xl;
   }
 }
+Under construction .navbar-mobile {
+  @apply bg-blue-200 absolute  flex flex-col w-full h-[100vh];
 
-.navbar-mobile {
-  @apply bg-blue-200 absolute  flex flex-col w-full h-[100vh] ;
-
-  .nav-header{
-    @apply py-5 px-10 flex justify-between
+  .nav-header {
+    @apply py-5 px-10 flex justify-between;
   }
 
-  .navlink-container{
+  .navlink-container {
     @apply flex flex-col w-full items-center gap-10;
   }
 
   @include desktop {
     display: none;
   }
+}
+.content {
+  height: 100vh;
+  // margin-top: 100px;
+  padding: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkslateblue;
+  font-size: 50px;
+  color: white;
+  text-transform: uppercase;
 }
