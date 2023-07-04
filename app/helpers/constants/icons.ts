@@ -1,4 +1,1 @@
-
-export const MenuIcon = BiMenu
- 
-
+export const MenuIcon = "BiMenu";
