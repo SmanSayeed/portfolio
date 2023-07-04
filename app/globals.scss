@@ -3,6 +3,18 @@
 @tailwind utilities;
 @import "./style/mixins/_mixins.scss";
 
+
+$primary:rgb(238, 238, 231);
+$border:rgb(121, 117, 117);
+$primary-hover:rgb(196, 196, 191);
+$secondary:rgb(219 234 254);
+$secondary-hover:rgb(184, 179, 179);
+$text:rgb(31 41 55 / var(--tw-text-opacity));
+$tirtiary:rgb(238, 238, 231);
+$danger:rgb(240, 25, 25);
+$success:rgb(15, 156, 15);
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -19,6 +31,8 @@
 
 *,
 body {
+  color: $text;
+  box-sizing: border-box;
   @apply p-0 m-0 text-gray-800;
   // color: rgb(var(--foreground-rgb));
   // background: linear-gradient(
@@ -30,8 +44,9 @@ body {
 }
 
 .header {
-  @apply flex justify-center items-center px-10 py-5  bg-gray-100 fixed w-full overflow-hidden;
+  @apply flex justify-center items-center px-10 py-5 fixed w-full overflow-hidden;
 
+  background-color: $secondary;
   @include mobile {
     display: none;
   }
@@ -53,7 +68,7 @@ body {
     @apply uppercase font-bold hover:text-blue-600 text-2xl;
   }
 }
-Under construction .navbar-mobile {
+.navbar-mobile {
   @apply bg-blue-200 absolute  flex flex-col w-full h-[100vh];
 
   .nav-header {
@@ -61,22 +76,227 @@ Under construction .navbar-mobile {
   }
 
   .navlink-container {
-    @apply flex flex-col w-full items-center gap-10;
+    @apply flex flex-col w-full items-center gap-10 my-5;
   }
 
   @include desktop {
     display: none;
   }
 }
+.link-mobile{
+  @apply uppercase font-bold hover:text-blue-600 text-2xl;
+}
+.close{
+  font-size: 30px;
+  font-weight: bolder;
+}
 .content {
+  overflow: hidden;
   height: 100vh;
   // margin-top: 100px;
-  padding: 200px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: darkslateblue;
-  font-size: 50px;
+  background-color: $secondary;
+  font-size: 40px;
   color: white;
   text-transform: uppercase;
 }
+.cover-header{
+  margin-top:0px;
+  background-color: red;
+  height: 70px;
+}
+
+.menu-icon {
+  color: white;
+  font-size: 30px;
+  border-radius: 4px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.social{
+  position: absolute;
+  right: 30px;
+  top:20px;
+  display: flex;
+  gap: 50px;
+  @include mobile{
+    gap: 15px;
+  }
+}
+.social-icons{
+  height: 30px;
+  width: 30px;
+  border:1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  &:hover{
+    border: 1px solid white;
+    cursor: pointer;
+    background-color: white;
+  }
+
+}
+
+
+/* hero */
+.hero{
+  width: 100%;
+  height: auto;
+  background-color: $tirtiary;
+  display: flex;
+  @include mobile{
+    flex-direction: column;
+  }
+  .left{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:20px auto;
+    @include mobile{
+      width: 100%;
+    }
+  }
+  .right{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mobile{
+      width: 100%;
+      margin: 20px auto;
+    }
+  }
+}
+
+.name{
+  font-size: 100px;
+  font-weight: bolder;
+  color:$text;
+  @include mobile{
+    font-size: 30px;
+  }
+}
+.designation{
+  font-size: 50px;
+  font-weight: bolder;
+  color:$text;
+  @include mobile{
+    font-size: 15px;
+  }
+}
+.image{
+  border-radius: 10px;
+  height: 200px;
+  width: 100%;
+}
+
+/* hero end */
+
+// Skills 
+
+.skills{
+  @apply flex justify-center items-center flex-wrap gap-5 px-2 py-10 w-[90%] shadow-lg bg-white my-5 rounded-lg mx-auto flex-col;
+
+  @include mobile{
+    @apply w-[100%] px-0 gap-1 shadow-none;
+  }
+}
+
+.skills-box{
+  @apply flex justify-center items-center flex-wrap gap-5 px-2 py-10 w-[100%] bg-white my-5 mx-auto flex-row;
+  @include mobile{
+   display: none;
+  }
+  
+}
+
+.skills-box-mobile{
+ @include desktop{
+  display: none
+ }
+ @apply flex justify-center items-center flex-wrap gap-5 px-2 py-10 w-[100%] bg-white my-5 mx-auto flex-row;
+
+  @include mobile{
+    @apply w-[100%] px-0 gap-3;
+  }
+
+  @include mobile{
+    padding: 0px;
+  }
+}
+
+.skill-card{
+  @apply flex w-[200px] h-[80px] shadow-lg rounded-md p-0;
+  padding: 0px;
+  &:hover{
+    background-color: $primary;
+    @apply shadow-xl;
+  }
+
+  @include mobile{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 80px;
+  }
+
+  .skill-card-image-div{
+    width: 60%;
+    padding: 10px;
+    .skill-card-image{
+      width: 100%;
+      height: 100%;
+    }
+
+   
+  }
+
+  .skill-card-content{
+    @apply flex justify-center flex-col items-center;
+    .skill-card-title{
+      font-weight: bolder;
+    }
+    @include mobile{
+      font-size: 12px
+    }
+  }
+}
+.badge{
+  @apply p-1 border rounded-lg font-bold;
+  font-size: 10px;
+  width: auto;
+  text-align: center;
+  @include mobile{
+    font-size: 8px;
+  }
+}
+.Expert{
+  @apply bg-orange-400 text-orange-100;
+}
+.Intermediate{
+  @apply bg-green-600 text-green-100;
+}
+.Experienced{
+  @apply bg-blue-400 text-blue-100;
+}
+
+.show-more{
+  background-color: rgb(130, 19, 194);
+  padding: 5px 10px;
+  border-radius: 5px 5px 20px 20px;
+  color: white;
+  font-weight: bolder;
+
+}
+/* SKills end */

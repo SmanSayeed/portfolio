@@ -1,8 +1,8 @@
-import { Roboto } from "next/font/google";
+import { Nunito } from "next/font/google";
 import Header from "./components/molecules/Header/Header";
 import "./globals.scss";
 
-const inter = Roboto({
+const nunito = Nunito({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={nunito.className}>
         <Header />
         {children}
       </body>
