@@ -1,5 +1,4 @@
 import React from 'react'
-import Typography from '../../atoms/Typography/TypographyComponent'
 import ExperienceCard from '../../atoms/Card/ExperienceCard'
 
 type Props = {}
@@ -11,7 +10,10 @@ export default function Experience({}: Props) {
     <>
 
 <div className="my-3" >
-                    <Typography text="Experience" type="content-title" />
+                
+                    <p className='content-title'>
+                      Experience
+                    </p>
                 </div>
                 
               <div className="flex justify-between items-start flex-wrap">

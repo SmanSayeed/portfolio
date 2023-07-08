@@ -44,6 +44,12 @@ $black:#000000;
   color:$text-dark;
 }
 
+.section-title{
+  @apply text-[25px] text-center my-3 md:my-0 md:text-left  md:text-[30px] font-[700];
+}
+.content-title{
+  @apply text-[14] md:text-[20px] font-[700];
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;

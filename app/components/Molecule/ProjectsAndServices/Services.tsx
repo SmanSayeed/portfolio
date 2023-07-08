@@ -1,5 +1,4 @@
 import React from 'react'
-import Typography from '../../atoms/Typography/TypographyComponent'
 import ProjectCard from '../../atoms/ProjectCard/ProjectCard'
 
 type Props = {}
@@ -10,7 +9,9 @@ export default function Services({}: Props) {
     <>
 
 <div className="my-3" >
-                    <Typography text="Services" type="content-title" />
+                    <p className="content-title">
+                    Services
+                    </p>
                 </div>
                 
               <div className="flex justify-between items-start flex-wrap">

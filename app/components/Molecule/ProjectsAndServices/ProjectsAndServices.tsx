@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Typography from "../../atoms/Typography/TypographyComponent";
 import TabButton from "../../atoms/TabButton/TabButtonComponent";
 import Projects from "./Projects";
 import Services from "./Services";
@@ -34,10 +33,10 @@ export default function ProjectsAndServices({}: Props) {
       <div className="px-[5%] pt-[20px] min-h-[60vh] bg-gray-200">
         <div className="w-full flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center">
           <div className="w-full">
-            <Typography
-              text="Projects And Services"
-              type="title"             
-            />
+          
+               <p className="section-title">
+               Projects And Services
+                    </p>
           </div>
 
           <div className="">
