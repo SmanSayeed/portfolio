@@ -2,9 +2,6 @@
 import React, { useState } from "react";
 import Typography from "../../Atoms/Typography/Typography";
 import TabButton from "../../Atoms/TabButton/TabButton";
-import ExperienceCard from "../../Atoms/Card/ExperienceCard";
-import Experience from "../SkillsAndExperience/Experience";
-import Education from "../SkillsAndExperience/Education";
 import Projects from "./Projects";
 import Services from "./Services";
 
