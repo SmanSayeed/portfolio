@@ -1,11 +1,12 @@
-import Image from 'next/image'
+import Hero from "./components/molecules/Hero/Hero";
+import Skills from "./components/molecules/Skills/Skills";
 
 export default function Home() {
   return (
     <main>
-      <div className="bg-blue-600 mx-auto my-5 p-10">
-    MEET SAADMAN SAYEED
-      </div>
+      <div className="cover-header" />
+      <Hero />
+      <Skills/>
     </main>
-  )
+  );
 }
