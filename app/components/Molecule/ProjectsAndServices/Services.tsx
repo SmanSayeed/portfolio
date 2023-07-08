@@ -1,6 +1,6 @@
 import React from 'react'
-import Typography from '../../Atoms/Typography/Typography'
-import ProjectCard from '../../Atoms/ProjectCard/ProjectCard'
+import Typography from '../../atoms/Typography/Typography'
+import ProjectCard from '../../atoms/ProjectCard/ProjectCard'
 
 type Props = {}
 
