@@ -8,7 +8,7 @@ export default function Header({}: Props) {
   
   <div  className='h-20 w-full bg-blue-800 text-white flex justify-between items-center'>
     <div className='w-[30%] ml-5 '>
-        Saadman Sayeed's portfolio
+        Saadman Sayeed portfolio
     </div>
   <div className='h-20 w-full text-white flex justify-end gap-10 items-center mr-5'>
 
