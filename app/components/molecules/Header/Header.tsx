@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import Social from "../Social/Social";
+import { ThemeSwitcher } from "../../ThemeSwitcher/ThemeSwitcher";
 type Props = {};
 
 export default function Header({}: Props) {
@@ -14,35 +15,21 @@ export default function Header({}: Props) {
   const openModal = () => {};
   return (
     <>
-      <div className="header">
-        <div className="navbar">
+      <div className="h-[80px] flex justify-center  items-center fixed w-full shadow-lg bg-white dark:bg-gray-600 ">
+    <div className=" left-20 top-20 z-40" >
+    <ThemeSwitcher />
+    </div>
+        <div className="flex justify-center items-center gap-10 font-sm text-black dark:text-white">
+      
           {navItems.map((item: any, index: any) => (
             <React.Fragment key={index}>
-              <Link className="link" href={item.link}>
+              <Link className="uppercase hover:font-extrabold" href={item.link}>
                 {item.name}
               </Link>
             </React.Fragment>
           ))}
+        
         </div>
-
-        {/* <div className="social">
-         
-          <Link className="social-icons" href="https://github.com/smansayeed" target="_blank">
-            <FiGithub fill="gray"/>
-          </Link>
-
-          <Link className="social-icons" href="https://www.linkedin.com/in/saadmansayeed/" target="_blank">
-            <FiLinkedin fill="skyblue"/>
-          </Link>
-
-          <Link className="social-icons" href="https://twitter.com/Sman_sayeed" target="_blank">
-            <FiTwitter fill="orange" />
-          </Link>
-
-          <Link className="social-icons" href="https://facebook.com/saadman2" target="_blank">
-            <FiFacebook fill="blue"/>
-          </Link>
-        </div> */}
         <Social />
       </div>
 

@@ -3,16 +3,46 @@
 @tailwind utilities;
 @import "./style/mixins/_mixins.scss";
 
+$primary:#6244C6;
+$bg-primary:#FFFFFF;
+$bg-dark-primary:#b19ccb;
 
-$primary:rgb(238, 238, 231);
 $border:rgb(121, 117, 117);
 $primary-hover:rgb(196, 196, 191);
-$secondary:rgb(219 234 254);
+$bg-secondary:#F7F7F7;
+$bg-dark-secondary:#2a4298;
 $secondary-hover:rgb(184, 179, 179);
-$text:rgb(31 41 55 / var(--tw-text-opacity));
-$tirtiary:rgb(238, 238, 231);
+$text:#000000;
+$text-dark:#ccc;
 $danger:rgb(240, 25, 25);
 $success:rgb(15, 156, 15);
+$black:#000000;
+
+/* common */
+.primary{
+  background-color: $bg-primary;
+}
+.secondary{
+  background-color: $bg-secondary;
+}
+.dark-primary{
+  background-color: $bg-dark-primary;
+}
+.dark-secondary{
+  background-color: $bg-dark-secondary;
+}
+.button-bg{
+  background-color: $primary;
+}
+.primary-text{
+  color: $primary;
+}
+.default-text{
+  color:$text;
+}
+.default-dark-text{
+  color:$text-dark;
+}
 
 
 :root {
@@ -31,7 +61,7 @@ $success:rgb(15, 156, 15);
 
 *,
 body {
-  color: $text;
+
   box-sizing: border-box;
   @apply p-0 m-0 text-gray-800;
   // color: rgb(var(--foreground-rgb));
@@ -46,7 +76,7 @@ body {
 .header {
   @apply flex justify-center items-center px-10 py-5 fixed w-full overflow-hidden;
 
-  background-color: $secondary;
+  background-color: $bg-secondary;
   @include mobile {
     display: none;
   }
@@ -98,7 +128,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $secondary;
+  background-color: $bg-secondary;
   font-size: 40px;
   color: white;
   text-transform: uppercase;
@@ -149,7 +179,7 @@ body {
 .hero{
   width: 100%;
   height: auto;
-  background-color: $tirtiary;
+  background-color: $primary;
   display: flex;
   @include mobile{
     flex-direction: column;
@@ -239,7 +269,7 @@ body {
   @apply flex w-[200px] h-[80px] shadow-lg rounded-md p-0;
   padding: 0px;
   &:hover{
-    background-color: $primary;
+    background-color: #e0dfe2;
     @apply shadow-xl;
   }
 
@@ -296,7 +326,7 @@ body {
   padding: 5px 10px;
   border-radius: 5px 5px 20px 20px;
   color: white;
-  font-weight: bolder;
-
+  font-weight: bolder;  
 }
+
 /* SKills end */

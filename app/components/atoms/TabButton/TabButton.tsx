@@ -1,0 +1,65 @@
+"use client";
+import React, { useState } from "react";
+
+type Props = {
+  leftText: String;
+  rightText: String;
+  className?: String;
+  handleTab: Function;
+  currentTab: String;
+};
+
+export default function TabButton({
+  leftText,
+  rightText,
+  className,
+  handleTab,
+  currentTab,
+}: Props) {
+  const [selected, setSelected] = useState({
+    left: true,
+    right: false,
+  });
+
+  
+  const leftActive = `bg-violet-700  border-r-2 text-gray-100`;
+  
+  const rightActive = `bg-violet-700  border-l-2 text-gray-100`;
+
+  const leftClass = `flex text-sm text-bolder text-violet-700 justify-center items-center px-5 py-2  cursor-pointer w-[50%] uppercase ${selected.left && leftActive}`;
+  const rightClass = `flex text-sm text-bolder text-violet-700 justify-center items-center px-5 py-2 cursor-pointer w-[50%] uppercase  ${selected.right && rightActive}`;
+
+  const changeTab = (nextTab: string) => {
+    if (nextTab == "right") {
+      setSelected({
+        left: false,
+        right: true,
+      });
+    }
+    if (nextTab == "left") {
+      setSelected({
+        left: true,
+        right: false,
+      });
+    }
+    handleTab(nextTab);
+  };
+  return (
+    <>
+      <div className=" w-[300px] flex justify-center items-center border-[2px] border-violet-600 rounded-md bg-white">
+        <div
+          className={`${leftClass} `}
+          onClick={() => changeTab("left")}
+        >
+          {leftText}
+        </div>
+        <div
+          className={`${rightClass}`}
+          onClick={() => changeTab("right")}
+        >
+          {rightText}
+        </div>
+      </div>
+    </>
+  );
+}
