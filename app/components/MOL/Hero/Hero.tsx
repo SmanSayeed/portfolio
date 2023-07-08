@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Button from "../../ATOM/Button/Button";
-import Social from "../Social/Social";
-import Wait from "../../MOLECULE/Wait/Wait";
 
 type Props = {};
 
@@ -10,7 +8,10 @@ export default function Hero({}: Props) {
     <>
       <div className="bg-gray-200 w-full h-auto  px-[10%] overflow-hidden ">
 
-    <Wait/>
+      <div className="text-lg text-violet-950 font-extrabold w-full text-center my-5 bg-yellow-500 py-5">
+        <p className="text-lg text-violet-950 font-extrabold w-full text-center my-5">Wait ! Saadman Sayeed is working on this site.</p>
+        <p className="text-4xl text-violet-800">Under Construction</p>
+        </div>
         <div className="flex flex-col md:flex-row justify-center md:justify-end items-center">
        
         <div className="w-full md:w-[50%] flex flex-col justify-center md:justify-start items-center md:items-start my-[10%]">
