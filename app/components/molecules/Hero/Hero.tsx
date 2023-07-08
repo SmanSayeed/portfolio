@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "../../atoms/Button/Button";
+import Button from "../../atoms/Button/ButtonComponent";
 import Social from "../Social/Social";
 import Wait from "../../Molecule/Wait/Wait";
 

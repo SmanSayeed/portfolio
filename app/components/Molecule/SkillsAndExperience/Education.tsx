@@ -1,5 +1,5 @@
 import React from 'react'
-import ExperienceCard from '../../atoms/Card/ExperienceCard'
+import ExperienceCard from '../../atoms/Card/ExperienceCardComponent'
 
 type Props = {}
 

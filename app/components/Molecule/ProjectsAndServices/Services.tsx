@@ -1,5 +1,5 @@
 import React from 'react'
-import ProjectCard from '../../atoms/ProjectCard/ProjectCard'
+import ProjectCard from '../../atoms/ProjectCard/ProjectCardComponent'
 
 type Props = {}
 
