@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from '../../atoms/Typography/Typography'
+import Typography from '../../atoms/Typography/TypographyComponent'
 import ExperienceCard from '../../atoms/Card/ExperienceCard'
 
 type Props = {}

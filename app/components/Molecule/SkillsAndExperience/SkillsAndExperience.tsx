@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Typography from "../../atoms/Typography/Typography";
+import Typography from "../../atoms/Typography/TypographyComponent";
 import TabButton from "../../atoms/TabButton/TabButtonComponent";
 import Experience from "./Experience";
 import Education from "./Education";
