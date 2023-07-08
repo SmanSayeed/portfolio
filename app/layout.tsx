@@ -1,5 +1,5 @@
 import { Nunito } from "next/font/google";
-import Header from "./components/molecules/Header/Header";
+import Header from "./components/MOL/Header/Header";
 import "./globals.scss";
 import { ThemeProvider } from "./theme-provider";
 import { ThemeSwitcher } from "./components/ThemeSwitcher/ThemeSwitcher";

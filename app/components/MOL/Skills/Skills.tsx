@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import SkillCard from '../../atoms/SkillCard/SkillCardComponent';
+import SkillCard from '../../ATOM/SkillCard/SkillCardComponent';
 import { motion } from "framer-motion"
 type Props = {}
 

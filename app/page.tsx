@@ -1,7 +1,7 @@
-import ProjectsAndServices from "./components/Molecule/ProjectsAndServices/ProjectsAndServices";
-import SkillsAndExperience from "./components/Molecule/SkillsAndExperience/SkillsAndExperience";
-import Hero from "./components/molecules/Hero/Hero";
-import Skills from "./components/molecules/Skills/Skills";
+import ProjectsAndServices from "./components/MOLECULE/ProjectsAndServices/ProjectsAndServices";
+import SkillsAndExperience from "./components/MOLECULE/SkillsAndExperience/SkillsAndExperience";
+import Hero from "./components/MOL/Hero/Hero";
+import Skills from "./components/MOL/Skills/Skills";
 
 export default function Home() {
   return (

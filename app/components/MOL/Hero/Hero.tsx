@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Button from "../../atoms/Button/Button";
+import Button from "../../ATOM/Button/Button";
 import Social from "../Social/Social";
-import Wait from "../../Molecule/Wait/Wait";
+import Wait from "../../MOLECULE/Wait/Wait";
 
 type Props = {};
 
