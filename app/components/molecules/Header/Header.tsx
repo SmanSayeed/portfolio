@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
-import Social from "../Social/Social";
 import { ThemeSwitcher } from "../../ThemeSwitcher/ThemeSwitcher";
+import Social from "../Social/Social";
 type Props = {};
 
 export default function Header({}: Props) {
@@ -15,12 +15,8 @@ export default function Header({}: Props) {
   const openModal = () => {};
   return (
     <>
-      <div className="h-[80px] flex justify-center  items-center fixed w-full shadow-lg bg-white dark:bg-gray-600 ">
-    <div className=" left-20 top-20 z-40" >
-    <ThemeSwitcher />
-    </div>
+      <div className="h-[80px] flex justify-center  items-center fixed w-full shadow-lg bg-white dark:bg-gray-600 header ">
         <div className="flex justify-center items-center gap-10 font-sm text-black dark:text-white">
-      
           {navItems.map((item: any, index: any) => (
             <React.Fragment key={index}>
               <Link className="uppercase hover:font-extrabold" href={item.link}>
@@ -28,9 +24,9 @@ export default function Header({}: Props) {
               </Link>
             </React.Fragment>
           ))}
-        
         </div>
         <Social />
+        
       </div>
 
       <div className="header-mobile">

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { FiGithub,FiFacebook,FiLinkedin,FiTwitter } from "react-icons/fi";
+import { ThemeSwitcher } from '../../ThemeSwitcher/ThemeSwitcher';
 type Props = {}
 
 export default function Social({}: Props) {
@@ -23,6 +24,9 @@ export default function Social({}: Props) {
     <Link className="social-icons" href="https://facebook.com/saadman2" target="_blank">
       <FiFacebook fill="blue"/>
     </Link>
+    <div className="">
+          <ThemeSwitcher />
+        </div>
   </div>
 
     
