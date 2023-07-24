@@ -106,7 +106,7 @@ body {
   }
 }
 .navbar-mobile {
-  @apply bg-blue-200 absolute  flex flex-col w-full h-[100vh];
+  @apply bg-blue-200 dark:bg-blue-900 text-black dark:text-white absolute  flex flex-col w-full h-[100vh] z-10;
 
   .nav-header {
     @apply py-5 px-10 flex justify-between;
@@ -121,10 +121,11 @@ body {
   }
 }
 .link-mobile {
-  @apply uppercase font-bold hover:text-blue-600 text-2xl;
+  @apply uppercase font-bold dark:text-white  hover:text-blue-600 text-2xl;
 }
 .close {
-  font-size: 30px;
+  @apply text-[20px] font-extrabold border border-black text-black rounded-full h-[30px] w-[30px] flex justify-center items-center;
+  font-size: 20px;
   font-weight: bolder;
 }
 .content {
@@ -338,7 +339,7 @@ body {
   width: 100vw;
   height: 50vh;
   @include mobile {
-    height: 80vh;
+    height: auto;
   }
   // background-color: black;
   z-index: 1;

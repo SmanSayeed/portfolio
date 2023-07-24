@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
-import { ThemeSwitcher } from "../../ThemeSwitcher/ThemeSwitcher";
 import Social from "../Social/Social";
 type Props = {};
 
@@ -26,7 +25,6 @@ export default function Header({}: Props) {
           ))}
         </div>
         <Social />
-        
       </div>
 
       <div className="header-mobile">
@@ -34,7 +32,13 @@ export default function Header({}: Props) {
         <button onClick={() => setShow(!show)}>
           {/* <BiMenu style={{ color: "white" }} className="menu-icon" 
           /> */}
-          <FiMenu className="menu-icon" />
+          {show ? (
+            <div className="close " onClick={() => setShow(!show)}>
+             x
+            </div>
+          ) : (
+            <FiMenu className="menu-icon" />
+          )}
         </button>
         {/* <button onClick={()=>openModal()}>Details</button> */}
       </div>
