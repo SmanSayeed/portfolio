@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
-import Social from "../Social/Social";
+import { ThemeSwitcher } from "../../ThemeSwitcher/ThemeSwitcher";
 type Props = {};
 
 export default function Header({}: Props) {
@@ -14,27 +14,41 @@ export default function Header({}: Props) {
   const openModal = () => {};
   return (
     <>
-      <div className="h-[80px] flex justify-center  items-center fixed w-full shadow-lg bg-white dark:bg-gray-600 header ">
-        <div className="flex justify-center items-center gap-10 font-sm text-black dark:text-white">
+      <div className="h-[80px] flex justify-between items-center fixed w-full shadow-lg px-[10%] bg-slate-900  text-white z-50">
+        <div className="uppercase text-[20px] font-[900] text-green-300">
+          Saadman
+        </div>
+        <div className="flex justify-center items-center gap-10 font-sm text-white">
           {navItems.map((item: any, index: any) => (
             <React.Fragment key={index}>
-              <Link className="uppercase hover:font-extrabold" href={item.link}>
+              <Link
+                className="uppercase font-semibold hover:font-extrabold hover:text-green-300"
+                href={item.link}
+              >
                 {item.name}
               </Link>
             </React.Fragment>
           ))}
         </div>
-        <Social />
+        <div>
+          {/* <Social /> */}
+          <div className="">
+            <ThemeSwitcher />
+          </div>
+        </div>
       </div>
 
       <div className="header-mobile">
-        <Social />
+        <div className="">
+          <ThemeSwitcher />
+        </div>
+        {/* <Social /> */}
         <button onClick={() => setShow(!show)}>
           {/* <BiMenu style={{ color: "white" }} className="menu-icon" 
           /> */}
           {show ? (
             <div className="close " onClick={() => setShow(!show)}>
-             x
+              x
             </div>
           ) : (
             <FiMenu className="menu-icon" />

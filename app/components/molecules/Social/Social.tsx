@@ -24,9 +24,7 @@ export default function Social({}: Props) {
     <Link className="social-icons" href="https://facebook.com/saadman2" target="_blank">
       <FiFacebook fill="blue"/>
     </Link>
-    <div className="">
-          <ThemeSwitcher />
-        </div>
+ 
   </div>
 
     
