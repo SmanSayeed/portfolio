@@ -9,7 +9,6 @@ export default function Education({}: Props) {
     <>
 
 <div className="my-3" >
-                 =
                     <p className="content-title">
                     Education
                     </p>

@@ -173,13 +173,13 @@ body {
   }
 }
 .social-icons {
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
   border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 10%;
   &:hover {
     border: 1px solid white;
     cursor: pointer;
@@ -363,3 +363,30 @@ body {
 //   // z-index: 1;
 //   /* Ensure this layer is above the others */
 // }
+
+/* TextUnderline.module.css */
+
+@keyframes ballAnimation {
+  0% {
+    left: -4rem;
+  }
+  100% {
+    left: calc(100% + 4rem);
+  }
+}
+
+.bg-transparentGreen {
+  background-color: rgba(170, 211, 170, 0.2);
+}
+
+.bg-neonBall {
+  background-color: rgba(99, 235, 72, 0.8);
+  backdrop-filter: blur(10px); /* Adjust blur strength as needed */
+}
+
+/* Apply animation to the ball */
+.animate-ballAnimation {
+  animation: ballAnimation linear infinite;
+}
+
+

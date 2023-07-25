@@ -1,11 +1,15 @@
-import { Nunito } from "next/font/google";
+import { Nunito, Radio_Canada } from "next/font/google";
 import Header from "./components/molecules/Header/Header";
 import "./globals.scss";
 import { ThemeProvider } from "./theme-provider";
-import { ThemeSwitcher } from "./components/ThemeSwitcher/ThemeSwitcher";
-import { switchThemeDuration } from "./constants/SwitchThemeDuration";
 
 const nunito = Nunito({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const radio_canada = Radio_Canada({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
@@ -23,11 +27,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <Header />
-        {children}
-      </ThemeProvider>
+      <body className={radio_canada.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

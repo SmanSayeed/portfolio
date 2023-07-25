@@ -1,14 +1,14 @@
-import ProjectsAndServices from "./components/molecules/ProjectsAndServices/ProjectsAndServices";
-import SkillsAndExperience from "./components/molecules/SkillsAndExperience/SkillsAndExperience";
+import Expertise from "./components/molecules/Expertise/Expertise";
 import Hero from "./components/molecules/Hero/Hero";
-import Skills from "./components/molecules/Skills/Skills";
+import SkillsAndExperience from "./components/molecules/SkillsAndExperience/SkillsAndExperience";
 
 export default function Home() {
   return (
     <main>
       <div className="cover-header" />
       <Hero />
-      <Skills/>
+      <Expertise />
+      {/* <Skills/> */}
       <SkillsAndExperience />
       {/* <ProjectsAndServices/> */}
     </main>
