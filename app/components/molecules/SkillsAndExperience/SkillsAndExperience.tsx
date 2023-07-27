@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import TabButton from "../../atoms/TabButton/TabButtonComponent";
-import Experience from "./Experience";
 import Education from "./Education";
+import Experience from "./Experience";
 
 type Props = {};
 
@@ -29,13 +29,10 @@ export default function SkillsAndExperience({}: Props) {
 
   return (
     <>
-      <div className="px-[5%] pt-[20px] min-h-[60vh] my-[100px]">
+      <div className="px-[5%] pt-[20px] min-h-[70vh] my-[70px]">
         <div className="w-full flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center">
           <div className="w-full">
-     
-    <p className={`section-title`}>
-    Education And Experience
-    </p>
+            <p className={`section-title`}>Education And Experience</p>
           </div>
 
           <div className="">
@@ -51,13 +48,11 @@ export default function SkillsAndExperience({}: Props) {
         <div className="mt-5  w-full ">
           {tab.left ? (
             <>
-           <Experience/>
-        
-            
+              <Experience />
             </>
           ) : (
             <>
-                 <Education/>
+              <Education />
             </>
           )}
         </div>

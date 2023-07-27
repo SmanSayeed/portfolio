@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
 type Props = {
   leftText: String;
@@ -21,13 +21,19 @@ export default function TabButton({
     right: false,
   });
 
-  
-  const leftActive = `bg-green-300  border-r-2 `;
-  
-  const rightActive = `bg-green-300  border-l-2 `;
+  const [leftTextColor, setLeftTextColor] = useState("text-gray-300");
+  const [rightTextColor, setRightTextColor] = useState("text-gray-300");
 
-  const leftClass = `flex text-sm text-bolder text-green-900 font-[800] justify-center items-center px-5 py-2  cursor-pointer w-[50%] uppercase ${selected.left && leftActive}`;
-  const rightClass = `flex text-sm text-bolder text-green-900 font-[800] justify-center items-center px-5 py-2 cursor-pointer w-[50%] uppercase  ${selected.right && rightActive}`;
+  const leftActive = `bg-slate-600  border-r-2 `;
+
+  const rightActive = `bg-slate-600  border-l-2 `;
+
+  const leftClass = `flex text-sm text-bolder ${leftTextColor} font-[800] justify-center items-center px-5 py-2  cursor-pointer w-[50%] uppercase rounded-md ${
+    selected.left && leftActive
+  }`;
+  const rightClass = `flex text-sm text-bolder  ${rightTextColor}  font-[800] justify-center items-center px-5 py-2 cursor-pointer w-[50%] uppercase rounded-md ${
+    selected.right && rightActive
+  }`;
 
   const changeTab = (nextTab: string) => {
     if (nextTab == "right") {
@@ -35,28 +41,26 @@ export default function TabButton({
         left: false,
         right: true,
       });
+      setRightTextColor("text-green-300");
+      setLeftTextColor("text-gray-300");
     }
     if (nextTab == "left") {
       setSelected({
         left: true,
         right: false,
       });
+      setRightTextColor("text-gray-300");
+      setLeftTextColor("text-green-300");
     }
     handleTab(nextTab);
   };
   return (
     <>
-      <div className=" w-[300px] flex justify-center items-center border-[2px] border-green-300 rounded-md bg-white">
-        <div
-          className={`${leftClass} `}
-          onClick={() => changeTab("left")}
-        >
+      <div className=" w-[300px] flex justify-center items-center border-[2px] border-slate-200 rounded-md bg-white">
+        <div className={`${leftClass}`} onClick={() => changeTab("left")}>
           {leftText}
         </div>
-        <div
-          className={`${rightClass}`}
-          onClick={() => changeTab("right")}
-        >
+        <div className={`${rightClass}`} onClick={() => changeTab("right")}>
           {rightText}
         </div>
       </div>

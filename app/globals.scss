@@ -407,3 +407,8 @@ body {
   /* Applies a grayscale filter to the image */
   filter: invert(50%);
 }
+
+/* styles.module.css */
+.bg-blur {
+  backdrop-filter: blur(5px);
+}

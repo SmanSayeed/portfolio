@@ -34,7 +34,7 @@ export default function Expertise({}: Props) {
   return (
     <div className="px-[10%] ">
       <Title text="Expertise" />
-      <div className="my-5 flex flex-col md:flex-row px-2 justify-between items-center gap-5 ">
+      <div className="my-5 flex flex-col md:flex-row px-2 justify-between items-start gap-5 ">
         <div className={cardStyle}>
           <div className={titleStyle}>Backend</div>
           <div className={descStyle}>
