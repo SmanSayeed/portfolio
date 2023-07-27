@@ -1,33 +1,58 @@
-import React from 'react'
-
+import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
-    title:String,
-    year:String,
-    companyName:String,
-    className?:String
-}
+  title: String;
+  institute: String;
+  details: any;
+  logo: "";
+  link: "";
+  linkTitle: "";
+};
 
-export default function ExperienceCard({title,year,companyName,className}: Props) {
+export default function ExperienceCard({
+  title,
+  institute,
+  details,
+  logo,
+  link,
+  linkTitle,
+}: Props) {
   return (
-    <>
-    <div className={`flex flex-col justify-start items-start bg-gray-200 px-3 py-3 rounded-md ${className} shadow-lg min-h-[150px]`}>
-      <p className={`content-title`}>
-      {title}
-    </p>
-    <div className='h-[5px] w-[80%] bg-gray-400 rounded-md'>
-
+    <div>
+      <div className="text-green-300 text-[20px]">{title}</div>
+      <div className="text-white text-[18px]">{institute}</div>
+      <Link
+        target="_blank"
+        href={link}
+        className="flex gap-2 justify-start items-center text-white"
+      >
+        {logo && (
+          <div className="w-[40px] h-[40px] my-2">
+            
+            <Image
+              className="grayscale"
+              src={logo}
+              height={100}
+              width={100}
+              alt="logo"
+            />
+            
+          </div>
+        )}
+        <div className="mb-[10px]">{linkTitle}</div>
+      </Link>
+      <ul className="text-gray-200 text-[15px] pt-[10px] list-disc list-outside ml-5">
+        {details.length > 0 &&
+          details.map((d: any, i: any) => {
+            console.log("first", d);
+            return (
+              <li key={i} className="my-2">
+                {d}
+              </li>
+            );
+          })}
+      </ul>
     </div>
-    <p className='primary-text font-extrabold'>
-{year}
-    </p>  
-    <p className=''>
-       {companyName}
-    </p>
-     
-
-    </div>
-   
-    </>
-  )
+  );
 }

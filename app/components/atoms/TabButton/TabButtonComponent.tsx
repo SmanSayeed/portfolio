@@ -22,12 +22,12 @@ export default function TabButton({
   });
 
   
-  const leftActive = `bg-violet-300  border-r-2 `;
+  const leftActive = `bg-green-300  border-r-2 `;
   
-  const rightActive = `bg-violet-300  border-l-2 `;
+  const rightActive = `bg-green-300  border-l-2 `;
 
-  const leftClass = `flex text-sm text-bolder text-violet-900 font-[800] justify-center items-center px-5 py-2  cursor-pointer w-[50%] uppercase ${selected.left && leftActive}`;
-  const rightClass = `flex text-sm text-bolder text-violet-900 font-[800] justify-center items-center px-5 py-2 cursor-pointer w-[50%] uppercase  ${selected.right && rightActive}`;
+  const leftClass = `flex text-sm text-bolder text-green-900 font-[800] justify-center items-center px-5 py-2  cursor-pointer w-[50%] uppercase ${selected.left && leftActive}`;
+  const rightClass = `flex text-sm text-bolder text-green-900 font-[800] justify-center items-center px-5 py-2 cursor-pointer w-[50%] uppercase  ${selected.right && rightActive}`;
 
   const changeTab = (nextTab: string) => {
     if (nextTab == "right") {
@@ -46,7 +46,7 @@ export default function TabButton({
   };
   return (
     <>
-      <div className=" w-[300px] flex justify-center items-center border-[2px] border-violet-500 rounded-md bg-white">
+      <div className=" w-[300px] flex justify-center items-center border-[2px] border-green-300 rounded-md bg-white">
         <div
           className={`${leftClass} `}
           onClick={() => changeTab("left")}

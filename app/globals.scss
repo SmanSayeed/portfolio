@@ -389,4 +389,21 @@ body {
   animation: ballAnimation linear infinite;
 }
 
+/* The circle div */
+.circle {
+  /* Calculate the horizontal position to center the circle */
+  left: calc(50% - 0.8rem);
+  /* Calculate the vertical position to center the circle */
+  top: calc(50% - 0.8rem);
+  @include mobile {
+    width: 1.5rem;
+    height: 1.5rem;
+    left: calc(-3%);
+    top: calc(-2.5%);
+  }
+}
 
+.grayscale {
+  /* Applies a grayscale filter to the image */
+  filter: invert(50%);
+}
