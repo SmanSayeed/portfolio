@@ -9,7 +9,7 @@ export default function Services({}: Props) {
     <>
 
 <div className="my-3" >
-                    <p className="content-title">
+                    {/* <p className="content-title">
                     Services
                     </p>
                 </div>
@@ -28,7 +28,7 @@ export default function Services({}: Props) {
                     
                   <ProjectCard title="Secondary School Certificate (SSC)" year={"2011"} companyName={"Uttara High School and College"} />
                     
-                    </div>
+                    </div> */}
 
                    
          
