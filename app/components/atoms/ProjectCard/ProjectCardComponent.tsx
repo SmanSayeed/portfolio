@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FiGithub, FiGlobe } from "react-icons/fi";
 import Modal from "../Modal/Modal";
+import ScrollingImage from "../ScrollingImage/ScrollingImage";
 
 type Props = {
   title: String;
@@ -16,6 +17,7 @@ type Props = {
   image: any;
   video: any;
   className?: String;
+  images: any;
 };
 
 export default function ProjectCard({
@@ -29,25 +31,33 @@ export default function ProjectCard({
   details,
   tech,
   image,
+  images,
   video,
 }: Props) {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState(image);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => {
-    setModalOpen(true);
+  const openModal = () => {
+    setIsModalOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setModalOpen(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const setImage = (img: string) => {
+    setModalImage(img);
   };
 
   return (
     <>
       <div
-        className={`flex flex-col justify-start items-center bg-none border-[5px] border-slate-700 px-3 py-3 rounded-md ${className} shadow-lg min-h-[400px]`}
-        onClick={handleOpenModal}
+        className={`flex flex-col justify-start items-center bg-none border-[5px] border-slate-700 px-3 py-3 rounded-md ${className} shadow-lg min-h-[450px]`}
+        onClick={openModal}
       >
-        <div className="h-[200px] w-full bg-gray-400 rounded-md"></div>
+        <div className="h-[200px] w-full">
+          <ScrollingImage image={image} />
+        </div>
 
         <div className="w-full flex justify-center items-start text-center mt-2 border-b border-gray-400 py-2">
           <p className={`text-[14] md:text-[20px] font-[700]`}>{title}</p>
@@ -57,20 +67,20 @@ export default function ProjectCard({
           <div className="flex flex-row  justify-between items-end">
             <p className="text-white font-extrabold">{year}</p>
             <div className="flex gap-2 justify-between">
-              {link && (
+              {github && (
                 <Link
                   target="_blank"
-                  href={link}
+                  href={github}
                   className="flex gap-1 justify-center items-center"
                 >
                   <FiGithub />
                   <p>Github</p>
                 </Link>
               )}
-              {github && (
+              {link && (
                 <Link
                   target="_blank"
-                  href={github}
+                  href={link}
                   className="flex gap-1 justify-center items-center"
                 >
                   <FiGlobe /> <p>Live</p>
@@ -91,33 +101,59 @@ export default function ProjectCard({
                 </div>
               ))}
           </div>
+
+          <div className="text-slate-900 w-full flex justify-center items-center uppercase font-extrabold mt-3 bg-green-300 rounded-md ">
+            Details
+          </div>
         </div>
       </div>
 
-      <div>
-        <Modal isOpen={modalOpen} onClose={handleCloseModal}>
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
           <h2 className="text-xl font-bold mb-4">{title}</h2>
           <div className="">
-            <div className="h-[200px] w-full bg-gray-400 rounded-md"></div>
+            <div className="h-[200px] md:h-[300px] w-full">
+              <ScrollingImage image={modalImage} />
+            </div>
+            <div className="flex gap-2 my-3 ">
+              <div
+                onClick={() => setImage(image)}
+                className="h-[100px] w-[100px] shadow border border-white rounded-lg"
+              >
+                <ScrollingImage image={image} scroll={false} />
+              </div>
+
+              {images &&
+                images.length > 0 &&
+                images.map((img: any, index: any) => (
+                  <div
+                    onClick={() => setImage(img)}
+                    key={index}
+                    className="h-[100px] w-[100px] shadow border border-white rounded-lg"
+                  >
+                    <ScrollingImage image={img} scroll={false} />
+                  </div>
+                ))}
+            </div>
 
             <div className="w-full mt-2 flex flex-col p-1">
               <div className="flex flex-row  justify-between items-end">
                 <p className="text-white font-extrabold">{year}</p>
                 <div className="flex gap-2 justify-between">
-                  {link && (
+                  {github && (
                     <Link
                       target="_blank"
-                      href={link}
+                      href={github}
                       className="flex gap-1 justify-center items-center"
                     >
                       <FiGithub />
                       <p>Github</p>
                     </Link>
                   )}
-                  {github && (
+                  {link && (
                     <Link
                       target="_blank"
-                      href={github}
+                      href={link}
                       className="flex gap-1 justify-center items-center"
                     >
                       <FiGlobe /> <p>Live</p>
@@ -151,7 +187,7 @@ export default function ProjectCard({
           </div>
           {/* You can add any other components or content here */}
         </Modal>
-      </div>
+      )}
     </>
   );
 }

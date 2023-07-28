@@ -7,7 +7,7 @@ const TextUnderline = ({ width }: Props) => {
 
   return (
     <div
-      className={`relative h-2 w-[${width}] bg-transparentGreen overflow-hidden rounded-lg flex justify-center items-center`}
+      className={`relative h-[10px] w-[200px] bg-transparentGreen overflow-hidden rounded-lg flex justify-center items-center`}
     >
       {/* The neon color blurred ball */}
       <div

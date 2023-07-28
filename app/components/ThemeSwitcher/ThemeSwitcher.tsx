@@ -27,7 +27,7 @@ export const ThemeSwitcher = () => {
           </div>
         </div>
       ) : (
-        <div className="text-white flex justify-center items-center h-[20px] w-[20px] dark:bg-yellow-100 ">
+        <div className="text-black flex justify-center items-center h-[20px] w-[20px] dark:bg-yellow-100 ">
           <div>
             <FiSun className=" fill-yellow-100  h-[20px] w-[20px]" />
           </div>

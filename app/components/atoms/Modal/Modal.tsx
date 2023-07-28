@@ -1,43 +1,64 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
-type ModalProps = {
-  isOpen: boolean;
+interface ModalProps {
   onClose: () => void;
-  defaultWidth?: string;
-  defaultHeight?: string;
-  children: ReactNode;
-};
 
-const Modal: React.FC<ModalProps> = ({
-  isOpen,
-  onClose,
-  defaultWidth = "w-[90vw] md:w-[50vw]",
-  defaultHeight = "h-[80vh] md:h-[70vh]",
-  children,
-}) => {
-  if (!isOpen) return null;
+  children: ReactNode;
+}
+
+const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const closeModal = () => {
+    setIsOpen(false);
+    onClose();
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const modalContent = document.querySelector(".modal-content");
+      if (modalContent && !modalContent.contains(event.target as Node)) {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <>
-      {/* Blurred background */}
-      <div className="fixed top-0 left-0 w-full h-full bg-opacity-50 bg-black backdrop-filter backdrop-blur-sm" />
-
-      {/* Modal */}
-      <div className=" fixed top-0 left-0 w-full h-full flex items-center justify-center">
-        <div
-          className={`relative bg-slate-800 border-2 border-slate-600 rounded-lg shadow-lg p-4 ${defaultWidth} ${defaultHeight} md:h-[80vh] md:w-[90vw]`}
-        >
-          <button
-            className="absolute top-3 right-3 text-[20px] text-gray-600 hover:text-gray-800"
-            onClick={() => {
-              onClose();
-            }}
-          >
-            X
-          </button>
-          {children}
+      {isOpen && (
+        <div className=" fixed inset-0 flex items-center justify-center z-50">
+          <div className="fixed inset-0 backdrop-blur-md"></div>
+          <div className="overflow-auto relative h-[80vh] w-[80vw] md:w-[50vw] p-8 bg-slate-700 border border-slate-400 rounded-lg z-10 modal-content">
+            <button
+              className="absolute top-2 right-2 text-gray-600 hover:text-white"
+              onClick={closeModal}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            {/* Your modal content goes here */}
+            <div>{children}</div>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

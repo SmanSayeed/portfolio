@@ -12,26 +12,31 @@ export default function Projects({}: Props) {
         <Title text={"Projects"} />
       </div>
 
-      <div className="flex flex-col md:flex-row justify-start items-start flex-wrap gap-2 md:gap-10">
+      <div className="flex flex-col md:flex-row justify-start items-start flex-wrap gap-2 md:gap-10 hover:cursor-pointer">
         {projectData.map((data: any, index: any) => {
-          return (
-            <React.Fragment key={index}>
-              <div className={`${style}`}>
-                <ProjectCard
-                  title={data.title}
-                  year={data.year}
-                  about={data.about}
-                  details={data.details}
-                  image={data.image}
-                  video={data.video}
-                  tech={data.tech}
-                  github={data.github}
-                  link={data.link}
-                  linkTitle={data.linkTitle}
-                />
-              </div>
-            </React.Fragment>
-          );
+          if (data.status == "active") {
+            return (
+              <React.Fragment key={index}>
+                <div className={`${style}`}>
+                  <ProjectCard
+                    title={data.title}
+                    year={data.year}
+                    about={data.about}
+                    details={data.details}
+                    image={data.image}
+                    video={data.video}
+                    tech={data.tech}
+                    github={data.github}
+                    link={data.link}
+                    linkTitle={data.linkTitle}
+                    images={data.images}
+                  />
+                </div>
+              </React.Fragment>
+            );
+          } else {
+            return;
+          }
         })}
 
         {/* <div className={`${style}`}>

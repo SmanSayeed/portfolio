@@ -412,3 +412,35 @@ body {
 .bg-blur {
   backdrop-filter: blur(5px);
 }
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(
+      -(50%)
+    ); /* Adjust this value to control the scrolling distance */
+  }
+}
+
+/* Add the custom animation class */
+.animate-scroll {
+  animation: scroll 10s linear infinite; /* Adjust the duration or animation timing here */
+}
+/* Pause animation when hovered */
+.animation-paused {
+  animation-play-state: paused;
+}
+/* Animate scroll up infinitely */
+// .animation-paused:hover {
+//   animation: scroll-up 5s linear infinite;
+// }
+@keyframes scroll-up {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
