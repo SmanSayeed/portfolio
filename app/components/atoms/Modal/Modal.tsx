@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
       {isOpen && (
         <div className=" fixed inset-0 flex items-center justify-center z-50">
           <div className="fixed inset-0 backdrop-blur-md"></div>
-          <div className="overflow-auto relative h-[80vh] w-[80vw] md:w-[50vw] p-8 bg-slate-700 border border-slate-400 rounded-lg z-10 modal-content">
+          <div className="overflow-auto relative h-[60vh] md:h-[80vh] w-[80vw] md:w-[50vw] p-8 bg-slate-700 border border-slate-400 rounded-lg z-10 modal-content">
             <button
               className="absolute top-2 right-2 text-gray-600 hover:text-white"
               onClick={closeModal}
