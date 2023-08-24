@@ -7,10 +7,25 @@ export default function Home() {
   return (
     <main>
       <div className="cover-header" />
+      <div id="connect" className="">
       <Hero />
+      </div>
+
+      <div id="skills" className="">
       <Expertise />
+      </div>
+
+      <div id="experience" className=" ">
       <SkillsAndExperience />
+      </div>
+
+      <div id="projects" className="">
       <Projects />
+      </div>
+      
+     
+    
+      
     </main>
   );
 }

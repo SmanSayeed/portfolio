@@ -32,7 +32,7 @@ export default function Expertise({}: Props) {
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <div className="px-[10%] ">
+    <div className="px-[10%] "  id="skills">
       <Title text="Expertise" />
       <div className="my-5 flex flex-col md:flex-row px-2 justify-between items-start gap-5 ">
         <div className={cardStyle}>

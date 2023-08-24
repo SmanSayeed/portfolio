@@ -16,7 +16,7 @@ const radio_canada = Radio_Canada({
 });
 
 export const metadata = {
-  title: "Meet Saadman",
+  title: "sman.dev",
   description: "Personal Portfolio Website of Saadman Sayeed",
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={radio_canada.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />

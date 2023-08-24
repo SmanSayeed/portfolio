@@ -29,7 +29,7 @@ export default function SkillsAndExperience({}: Props) {
 
   return (
     <>
-      <div className="px-[5%] pt-[20px] min-h-[70vh] my-[70px]">
+      <div className="px-[5%] pt-[20px] min-h-[70vh] my-[70px]" id="experience">
         <div className="w-full flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center">
           <div className="w-full">
             <p className={`section-title`}>Education And Experience</p>

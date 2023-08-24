@@ -7,7 +7,7 @@ type Props = {};
 export default function Projects({}: Props) {
   const style = `p-5 md:p-0 w-full md:w-[23%] my-0 md:my-2`;
   return (
-    <div className="px-0 md:px-[10%] mb-0 md:mb-[200px]">
+    <div className="px-0 md:px-[10%] mb-0 md:mb-[200px]"  id="projects">
       <div className="">
         <Title text={"Projects"} />
       </div>

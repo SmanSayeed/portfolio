@@ -16,7 +16,7 @@ export default function Header({}: Props) {
     <>
       <div className="h-[80px] flex justify-between items-center fixed w-full shadow-lg px-[10%] bg-slate-900  text-white z-50">
         <div className="uppercase text-[20px] font-[900] text-green-300">
-          Saadman
+          sman.dev
         </div>
         <div className="flex justify-center items-center gap-10 font-sm text-white">
           {navItems.map((item: any, index: any) => (
@@ -24,6 +24,7 @@ export default function Header({}: Props) {
               <Link
                 className="uppercase font-semibold hover:font-extrabold hover:text-green-300"
                 href={item.link}
+                scroll={false}
               >
                 {item.name}
               </Link>
@@ -77,21 +78,15 @@ export default function Header({}: Props) {
           </div>
         </div>
         <div className="navlink-container">
-          <Link className="link-mobile" href="/">
-            Home
-          </Link>
+        {navItems.map((item: any, index: any) => (
+            <React.Fragment key={index}>
+                <Link className="link-mobile" href={item.link} scroll={false}>
+                {item.name}
+                </Link>
+            </React.Fragment>
+          ))}
 
-          <Link className="link-mobile" href="/">
-            Portfolio
-          </Link>
-
-          <Link className="link-mobile" href="/">
-            Personal Details
-          </Link>
-
-          <Link className="link-mobile" href="/">
-            Contact
-          </Link>
+       
         </div>
       </motion.div>
       {/* ) */}

@@ -22,7 +22,7 @@ export default function Hero({}: Props) {
               </p>
               <p className="text-[20px]">Software Engineer</p>
 
-              <ul className="flex justify-start items-start flex-col gap-2 text-[20px] md:text-[50px] font-extrabold my-10">
+              <ul className="flex justify-start items-start flex-col gap-2 text-[20px] md:text-[30px] font-extrabold my-10">
                 <li className="flex justify-center items-center gap-2">
                   <FaLaptopCode className="fill-green-300" />
                   Full-stack Web Developer
@@ -33,8 +33,8 @@ export default function Hero({}: Props) {
                 </li>
               </ul>
               <p className="text-[15px] md:text-[20px]">
-                Write clean code, animations, and innovate interactive websites.
-                Have expertise in mentoring and project management
+                Write clean code and innovate interactive websites.
+                Have expertise in mentoring and project management.
               </p>
 
               <div className="flex gap-3 mt-5">
