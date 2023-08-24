@@ -46,18 +46,10 @@ export default function Hero({}: Props) {
           </div>
           <div className=" w-full md:w-[50%] mt-[50px] md:mt-0 flex justify-center items-center ">
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: 1,
-                borderRadius: ["10%", "10%", "10%", "10%", "10%"],
-                x: "0rem",
-              }}
-              whileHover={
-                {
-                  // backgroundColor:""
-                }
-              }
-              transition={{ duration: 0.5, delay: 0.1 }}
+                //  initial={{ opacity: 0, y: -20 }}
+                //  animate={{ opacity: 1, y: 0 }}
+                //  exit={{ opacity: 0, y: -20 }}
+                //  transition={{ duration: 0.5, ease: 'easeOut' }}
               className="relative ml-0 md:ml-[10%] h-[300px] md:h-[500px] w-[300px] md:w-[500px] border-[3px] border-gray-100 dark:border-white rounded-lg  bg-image1 "
             >
               <div className="absolute  bg-white rounded-2xl top-[60%] left-[-10%] md:top-[60%] md:left-[-10%] ">
