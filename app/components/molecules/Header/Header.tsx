@@ -80,7 +80,7 @@ export default function Header({}: Props) {
         <div className="navlink-container">
         {navItems.map((item: any, index: any) => (
             <React.Fragment key={index}>
-                <Link className="link-mobile" href={item.link} scroll={false}>
+                <Link className="link-mobile" href={item.link} scroll={false} onClick={() => setShow(!show)}>
                 {item.name}
                 </Link>
             </React.Fragment>

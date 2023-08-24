@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth"  style={{scrollBehavior:'smooth'}}>
       <body className={radio_canada.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
