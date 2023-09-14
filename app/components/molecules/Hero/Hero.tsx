@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { FaChalkboardTeacher, FaLaptopCode } from "react-icons/fa";
 import Social from "../Social/Social";
+import ImageLoader from "../../atoms/ImageLoader/ImageLoader";
 type Props = {};
 
 export default function Hero({}: Props) {
@@ -50,7 +51,7 @@ export default function Hero({}: Props) {
                 //  animate={{ opacity: 1, y: 0 }}
                 //  exit={{ opacity: 0, y: -20 }}
                 //  transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="relative ml-0 md:ml-[10%] h-[300px] md:h-[500px] w-[300px] md:w-[500px] border-[3px] border-gray-100 dark:border-white rounded-lg  bg-image1 "
+              className="relative ml-0 md:ml-[10%] h-[300px] md:h-[500px] w-[300px] md:w-[500px] border-[3px] border-gray-100 dark:border-white rounded-lg "
             >
               <div className="absolute  bg-white rounded-2xl top-[60%] left-[-10%] md:top-[60%] md:left-[-10%] ">
                 <p className="font-extrabold text-[20px] py-1 px-1">
@@ -64,6 +65,7 @@ export default function Hero({}: Props) {
                 alt="hero"
                 className="w-[110%] h-[110%]"
               /> */}
+              <ImageLoader src="/images/hero/saadman2.png" alt="Hero Image" preview="/images/hero/transparent.png"/>
             </motion.div>
           </div>
         </div>
