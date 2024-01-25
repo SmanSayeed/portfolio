@@ -18,7 +18,7 @@ export default function Social({}: Props) {
 
         <Link
           className="social-icons"
-          href="https://www.linkedin.com/in/saadmansayeed/"
+          href="https://www.linkedin.com/in/saadman-sayeed/"
           target="_blank"
         >
           <FiLinkedin fill="skyblue" className={iconStyle} />
