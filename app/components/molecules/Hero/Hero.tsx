@@ -34,8 +34,7 @@ export default function Hero({}: Props) {
                 </li>
               </ul>
               <p className="text-[15px] md:text-[20px]">
-                Write clean code and innovate interactive websites.
-                Have expertise in mentoring and project management.
+                Professional Web Developer | Hackathon winner | Project Manager | Team Leader | Innovative product development and business enthusiast | Exploring ML, AI, SAAS, DevOps and Cloud Engineering
               </p>
 
               <div className="flex gap-3 mt-5">
