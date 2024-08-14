@@ -55,7 +55,7 @@ export default function Hero({}: Props) {
             >
               <div className="absolute  bg-white rounded-2xl top-[60%] left-[-10%] md:top-[60%] md:left-[-10%] ">
                 <p className="font-extrabold text-[20px] py-1 px-1">
-                  4+ Yr Exp
+                  6+ Yr Exp
                 </p>
               </div>
               {/* <Image
