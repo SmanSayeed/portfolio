@@ -21,7 +21,7 @@ export default function Hero({}: Props) {
               <p className="text-[35px] md:text-[35px] font-extrabold text-white">
                 Saadman <span className="text-green-300">Sayeed</span>
               </p>
-              <p className="text-[20px]">Software Engineer</p>
+              <p className="text-[20px]">Senior Software Engineer</p>
 
               <ul className="flex justify-start items-start flex-col gap-2 text-[20px] md:text-[30px] font-extrabold my-10">
                 <li className="flex justify-center items-center gap-2">
@@ -30,11 +30,11 @@ export default function Hero({}: Props) {
                 </li>
                 <li className="flex justify-center items-center gap-2">
                   <FaChalkboardTeacher className="fill-green-300" />
-                  Mentor
+                  Hackathon winner | Project Manager | Team Leader 
                 </li>
               </ul>
               <p className="text-[15px] md:text-[20px]">
-                Professional Web Developer | Hackathon winner | Project Manager | Team Leader | Innovative product development and business enthusiast | Exploring ML, AI, SAAS, DevOps and Cloud Engineering
+               Saadman is an expert web application developer (Laravel, MERN) and business enthusiast. He is exploring ML, AI, SAAS, DevOps and Cloud Engineering.
               </p>
 
               <div className="flex gap-3 mt-5">
