@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     siteName: "Saadman Sayeed Portfolio",
     images: [
       {
-        url: "/images/thumbnail/thumbnail.png",
+        url: "/images/thumbnail/thumbnail.jpg",
         width: 1200,
         height: 630,
         alt: "Saadman Sayeed - Senior Full Stack Engineer & Tech Founder",
-        type: "image/png",
+        type: "image/jpg",
       },
     ],
   },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Saadman Sayeed | Full Stack Developer & Tech Founder",
     description: "Senior Full Stack Engineer & Founder of DigiWinners. Building scalable web apps with Next.js & AWS. Leading a 50k+ dev community.",
-    images: ["/images/thumbnail/thumbnail.png"],
+    images: ["/images/thumbnail/thumbnail.jpg"],
     creator: "@smansayeed",
   },
 };
