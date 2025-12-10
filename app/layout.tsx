@@ -20,7 +20,7 @@ const radio_canada = Radio_Canada({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sman.dev"),
   title: "Saadman Sayeed | Full Stack Developer & Tech Founder",
-  description: "Senior Full Stack Engineer & Founder of DigiWinners with 7+ years of experience. Specializing in building scalable enterprise solutions, AI-powered applications, and high-performance web systems using Next.js, React, Node.js, and AWS. Leading a developer community of 50k+ members.",
+  description: "Senior Full Stack Engineer & Founder of DigiWinners. Building scalable web apps with Next.js & AWS. Leading a 50k+ dev community.",
   keywords: ["Full Stack Developer", "Next.js", "React", "AI Integration", "Software Engineer", "Bangladesh", "DigiWinners", "Saadman Sayeed", "Web Developer"],
   authors: [{ name: "Saadman Sayeed", url: "https://sman.dev" }],
   openGraph: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://sman.dev",
     title: "Saadman Sayeed | Full Stack Developer & Tech Founder",
-    description: "Senior Full Stack Engineer & Founder of DigiWinners. Expert in Next.js, React, Node.js & AWS. Building scalable solutions and leading the largest dev community in Bangladesh.",
+    description: "Senior Full Stack Engineer & Founder of DigiWinners. Building scalable web apps with Next.js & AWS. Leading a 50k+ dev community.",
     siteName: "Saadman Sayeed Portfolio",
     images: [
       {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Saadman Sayeed | Full Stack Developer & Tech Founder",
-    description: "Senior Full Stack Engineer & Founder of DigiWinners. 7+ Years Exp. React, Next.js, Node.js, AWS.",
+    description: "Senior Full Stack Engineer & Founder of DigiWinners. Building scalable web apps with Next.js & AWS. Leading a 50k+ dev community.",
     images: ["/images/thumbnail/thumbnail.png"],
     creator: "@smansayeed",
   },
