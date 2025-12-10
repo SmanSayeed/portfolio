@@ -2,6 +2,7 @@ import { Nunito, Radio_Canada } from "next/font/google";
 import Header from "./components/molecules/Header/Header";
 import "./globals.scss";
 import { ThemeProvider } from "./theme-provider";
+import type { Metadata } from "next";
 
 const nunito = Nunito({
   weight: "400",
@@ -15,7 +16,9 @@ const radio_canada = Radio_Canada({
   display: "swap",
 });
 
-export const metadata = {
+// Metadata base is required for resolving relative OG image paths in Next.js 14+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://saadman-portfolio.vercel.app"),
   title: "Saadman Sayeed | Full Stack Developer & Tech Founder",
   description: "Portfolio of Saadman Sayeed, a Lead Software Engineer and Founder of DigiWinners. Specializing in Next.js, AI Integrations, and Scalable Web Solutions.",
   keywords: ["Full Stack Developer", "Next.js", "React", "AI Integration", "Software Engineer", "Bangladesh", "DigiWinners"],
@@ -29,10 +32,10 @@ export const metadata = {
     siteName: "Saadman Sayeed Portfolio",
     images: [
       {
-        url: "/images/hero/saadman2.png", // Using the hero image as OG image for now
+        url: "/images/thumbnail/thumbnail.png",
         width: 1200,
         height: 630,
-        alt: "Saadman Sayeed",
+        alt: "Saadman Sayeed Portfolio",
       },
     ],
   },
@@ -40,7 +43,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Saadman Sayeed | Full Stack Developer & Tech Founder",
     description: "Building scalable applications and leading tech teams.",
-    images: ["/images/hero/saadman2.png"],
+    images: ["/images/thumbnail/thumbnail.png"],
     creator: "@smansayeed",
   },
 };
