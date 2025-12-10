@@ -17,22 +17,22 @@ export const portfolio = {
   },
   testimonials: [
     {
-      name: "John Doe",
-      role: "CEO, TechCorp (USA)",
-      text: "Saadman delivered our ERP system ahead of schedule. His understanding of scalable architecture saved us months of rework. Highly recommended for complex backend tasks.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200"
+      name: "Zahidul Islam",
+      role: "CEO, StepStyleBD",
+      text: "Saadman delivered our Ecommerce system ahead of schedule. His understanding of scalable architecture saved us months of rework. Highly recommended for complex backend tasks.",
+      image: "/images/reviewers/p1.jpg"
     },
     {
-      name: "Sarah Smith",
-      role: "Founder, StyleHub (Netherlands)",
-      text: "The e-commerce platform DigiWinners built for us is blazing fast. Saadman's leadership ensured the team delivered pixel-perfect UI with robust performance.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200"
+      name: "Shajib Khan",
+      role: "Happy client",
+      text: "We needed a CRM system with calender scheduler, notification, report generation, and email notification features. Saadman delivered it ahead of schedule. His understanding of scalable architecture saved us months of rework. Highly recommended for complex backend tasks.",
+      image: "/images/reviewers/p2.jpg"
     },
     {
-      name: "Akira Yamamoto",
-      role: "CTO, FutureNet (Japan)",
-      text: "Exceptional problem solver. He optimized our high-traffic API and reduced costs significantly. A true expert in Node.js and AWS.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200"
+      name: "Zaman",
+      role: "Founder of Tutor Sheba",
+      text: "Exceptional problem solver. He optimized our high-traffic API and reduced costs significantly. A true expert in Laravel, Node.js, VPS and AWS.",
+      image: "/images/reviewers/p3.jpg"
     }
   ],
   timeline: [

@@ -36,6 +36,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Saadman Sayeed - Senior Full Stack Engineer & Tech Founder",
+        type: "image/png",
       },
     ],
   },
