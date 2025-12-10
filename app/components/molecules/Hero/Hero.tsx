@@ -100,7 +100,7 @@ export default function Hero() {
               <h3 className="text-2xl font-bold text-foreground uppercase tracking-widest border-l-4 border-purple-500 pl-4 py-1">
                 About Me
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-left">
                 {hooks.map((hook, i) => (
                   <motion.li
                     key={i}

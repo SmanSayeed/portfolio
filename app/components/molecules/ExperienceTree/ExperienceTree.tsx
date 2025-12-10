@@ -1,28 +1,40 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Briefcase, Users, Layout, ChevronRight, Globe, Award } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/app/components/ui/badge";
 import { portfolio } from "@/app/data/portfolio";
 import { cn } from "@/app/lib/utils";
+import { Button } from "@/app/components/ui/button";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 
 export default function ExperienceTree() {
   const { experience } = portfolio;
+  const [showDetails, setShowDetails] = useState(false);
 
   return (
     <section id="experience" className="py-20 relative overflow-hidden bg-gradient-to-b from-background via-secondary/5 to-background">
       <div className="container px-4 md:px-6">
-        <div className="text-center mb-20 relative z-10">
+        <div className="text-center mb-16 relative z-10 flex flex-col items-center">
           <Badge variant="outline" className="mb-4 text-primary border-primary/20">Career Path</Badge>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">Professional Journey</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-8">Professional Journey</h2>
+
+          <Button
+            onClick={() => setShowDetails(!showDetails)}
+            size="lg"
+            variant="outline"
+            className="rounded-full border-purple-500/50 text-purple-500 hover:bg-purple-500/10 hover:text-purple-400 transition-all font-semibold gap-2 animate-pulse hover:animate-none"
+          >
+            {showDetails ? "Collapse Details" : "View Detailed Experience"}
+            {showDetails ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+          </Button>
         </div>
 
         <div className="relative max-w-5xl mx-auto">
           {/* Central Tree Trunk Line */}
           <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500/20 via-blue-500/20 to-purple-500/20 md:-translate-x-1/2 rounded-full" />
 
-          <div className="space-y-16">
+          <div className={cn("space-y-4 md:space-y-6 transition-all duration-500", showDetails ? "space-y-8 md:space-y-12" : "")}>
             {experience.map((item, index) => {
               const isEven = index % 2 === 0;
               return (
@@ -33,11 +45,11 @@ export default function ExperienceTree() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className={cn(
-                    "relative flex flex-col md:flex-row gap-8 md:gap-0 items-start md:items-center",
+                    "relative flex flex-col md:flex-row gap-4 md:gap-0 items-start md:items-center transition-all duration-500",
                     isEven ? "md:flex-row" : "md:flex-row-reverse"
                   )}
                 >
-                  {/* Timeline Marker (Mobile Left / Desktop Center) */}
+                  {/* Timeline Marker - Branch Node */}
                   <div className="absolute left-[20px] md:left-1/2 w-8 h-8 -translate-x-1/2 flex items-center justify-center z-10">
                     <div className={cn(
                       "w-4 h-4 rounded-full border-4 shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all duration-500",
@@ -45,49 +57,56 @@ export default function ExperienceTree() {
                     )} />
                   </div>
 
+                  {/* Connecting Branch Line */}
+                  <div className={cn(
+                    "absolute top-8 md:top-1/2 left-[20px] md:left-1/2 w-8 md:w-[calc(50%-40px)] h-1 bg-purple-500/20 -z-10 origin-left transition-all duration-500",
+                    isEven ? "md:ml-0 md:origin-left" : "md:origin-right md:-ml-[calc(50%-40px)]",
+                    !showDetails && "opacity-0 md:opacity-100 scale-x-50" // Subtler lines when collapsed
+                  )} />
+
                   {/* Content Card */}
                   <div className={cn(
-                    "w-full md:w-[calc(50%-40px)] pl-12 md:pl-0",
+                    "w-full md:w-[calc(50%-40px)] pl-12 md:pl-0 transition-all duration-500",
                     isEven ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"
                   )}>
                     <div className={cn(
-                      "relative p-6 md:p-8 rounded-2xl border transition-all duration-300 hover:shadow-2xl group",
+                      "relative rounded-2xl border transition-all duration-500 hover:shadow-2xl group cursor-pointer",
+                      showDetails ? "p-6 md:p-8" : "p-4", // Smaller padding when collapsed
                       item.highlight
                         ? "bg-gradient-to-br from-purple-900/10 to-blue-900/10 border-purple-500/50"
                         : "bg-card border-border hover:border-primary/50"
-                    )}>
-                      {/* Connecting Branch Line (Desktop only - simplified via CSS pseudo-elements idea, but explicit div here for control) */}
-                      <div className={cn(
-                        "hidden md:block absolute top-1/2 h-[2px] w-12 bg-purple-500/30",
-                        isEven ? "-right-12" : "-left-12"
-                      )} />
-
-                      <div className={cn("flex flex-col gap-2 mb-4", isEven ? "md:items-end" : "md:items-start")}>
-                        <span className="text-sm font-bold tracking-wider text-purple-500 uppercase">{item.year}</span>
-                        <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">{item.title}</h3>
-                        <div className={cn("flex items-center gap-2 text-muted-foreground", isEven ? "md:flex-row-reverse" : "flex-row")}>
-                          {item.highlight ? <Award className="w-4 h-4 text-yellow-500" /> : <Globe className="w-4 h-4" />}
-                          <span className="font-medium text-foreground">{item.institute}</span>
+                    )}
+                      onClick={() => setShowDetails(true)} // Clicking card also expands
+                    >
+                      <div className="flex flex-col gap-1">
+                        <span className="text-sm font-mono text-primary font-bold">{item.year}</span>
+                        <h3 className={cn("font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 transition-all duration-300", showDetails ? "text-xl md:text-2xl" : "text-lg")}>
+                          {item.title}
+                        </h3>
+                        <div className="text-base font-semibold text-muted-foreground">
+                          {item.institute}
                         </div>
                       </div>
 
-                      <p className="text-muted-foreground leading-relaxed mb-6">
-                        {item.details}
-                      </p>
+                      {/* Expandable Details */}
+                      <AnimatePresence>
+                        {showDetails && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pt-4 border-t border-border/50 mt-4">
+                              <p className="text-muted-foreground leading-relaxed mb-4 text-sm md:text-base">
+                                {item.details}
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
 
-                      {item.link && (
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={cn(
-                            "inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:gap-3",
-                            item.highlight ? "text-purple-400 hover:text-purple-300" : "text-primary hover:text-primary/80"
-                          )}
-                        >
-                          {item.linkTitle || "Visit"} <ChevronRight className="w-4 h-4" />
-                        </a>
-                      )}
                     </div>
                   </div>
 

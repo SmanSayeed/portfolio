@@ -18,6 +18,9 @@ import { portfolio } from "@/app/data/portfolio";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof portfolio.projects[0] | null>(null);
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  const visibleProjects = portfolio.projects.slice(0, visibleCount);
 
   // In Next.js, importing assets or using string paths is fine.
   // We will enforce a uniform aspect ratio using CSS.
@@ -25,27 +28,30 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 bg-secondary/5">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
-          <Badge variant="outline" className="px-4 py-1 border-purple-500/50 text-purple-600 dark:text-purple-400">
-            My Works
-          </Badge>
-          <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-            Selected <span className="text-gradient">Projects</span>
+        <div className="text-center mb-16 space-y-4">
+          {/* Header Content */}
+          <div className="inline-block p-2 rounded-full bg-secondary/30 mb-4 backdrop-blur-sm">
+            <div className="px-4 py-1 rounded-full border border-primary/20 bg-background/50 text-sm font-medium text-primary shadow-[0_0_15px_rgba(168,85,247,0.1)]">
+              My Portfolio
+            </div>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+            Featured Projects
           </h2>
-          <p className="max-w-[700px] text-muted-foreground md:text-xl">
-            A showcasing of technical expertise and creative problem solving.
+          <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
+            A collection of applications demonstrating expertise in Full Stack Development, Cloud Architecture, and AI Integration.
           </p>
         </div>
 
         {/* Regular Grid (Uniform) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolio.projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               onClick={() => setSelectedProject(project)}
               className="group cursor-pointer rounded-3xl bg-card border border-border overflow-hidden hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 hover:-translate-y-2 flex flex-col"
             >
@@ -76,18 +82,36 @@ export default function Projects() {
               <div className="p-6 flex flex-col gap-3 flex-1">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors line-clamp-1">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground">{project.category}</p>
+                    <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">{project.category}</div>
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
                   </div>
-                  {/* Tiny visual indicator */}
-                  <div className="w-8 h-8 rounded-full border flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                    <ExternalLink size={14} />
-                  </div>
+                </div>
+                <p className="text-muted-foreground line-clamp-2 text-sm">{project.description}</p>
+
+                <div className="mt-auto pt-4 flex flex-wrap gap-2">
+                  {project.stack.slice(0, 3).map(tech => (
+                    <Badge key={tech} variant="secondary" className="text-xs bg-secondary/50">{tech}</Badge>
+                  ))}
+                  {project.stack.length > 3 && (
+                    <Badge variant="secondary" className="text-xs bg-secondary/50">+{project.stack.length - 3}</Badge>
+                  )}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Load More Button */}
+        {visibleCount < portfolio.projects.length && (
+          <div className="mt-12 text-center">
+            <Button
+              onClick={() => setVisibleCount(portfolio.projects.length)}
+              variant="outline" size="lg" className="rounded-full px-8 border-primary/20 hover:bg-primary/10 text-lg"
+            >
+              Load More Projects
+            </Button>
+          </div>
+        )}
 
         {/* --- Services Section Injection (As requested "In the project somewhere add my services section") --- 
            Actually, the user asked to add a separate Services section AND "In the project somewhere add my services section." 
@@ -101,11 +125,11 @@ export default function Projects() {
 
         {/* Modal */}
         <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
-          <DialogContent className="max-w-4xl p-0 overflow-hidden bg-card border-none rounded-3xl">
+          <DialogContent className="max-w-4xl p-0 overflow-hidden bg-card border-none">
             {selectedProject && (
-              <div className="flex flex-col md:flex-row max-h-[90vh] md:h-[600px]">
-                {/* Image Side */}
-                <div className="hidden md:block w-1/2 relative h-full bg-muted">
+              <div className="flex flex-col md:flex-row h-[80vh] md:h-auto overflow-y-auto">
+                {/* Image Section */}
+                <div className="w-full md:w-1/2 relative bg-muted aspect-video md:aspect-auto">
                   {selectedProject.image && (
                     <Image
                       src={selectedProject.image}
@@ -116,48 +140,30 @@ export default function Projects() {
                   )}
                 </div>
 
-                {/* Content Side */}
-                <div className="w-full md:w-1/2 flex flex-col p-6 md:p-10 h-full overflow-y-auto">
-                  <DialogHeader className="mb-6 text-left">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Badge className="bg-primary/10 text-primary border-none hover:bg-primary/20">{selectedProject.category}</Badge>
-                    </div>
-                    <DialogTitle className="text-3xl md:text-4xl font-bold">{selectedProject.title}</DialogTitle>
-                  </DialogHeader>
-
-                  {/* Mobile Image (Visible only on small screens) */}
-                  <div className="md:hidden w-full aspect-video relative rounded-xl overflow-hidden mb-6 bg-muted">
-                    {selectedProject.image && (
-                      <Image
-                        src={selectedProject.image}
-                        alt={selectedProject.title}
-                        fill
-                        className="object-cover"
-                      />
-                    )}
+                {/* Content Section */}
+                <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col">
+                  <div className="mb-6">
+                    <Badge className="mb-3">{selectedProject.category}</Badge>
+                    <h2 className="text-3xl font-bold mb-2">{selectedProject.title}</h2>
+                    <p className="text-muted-foreground leading-relaxed">{selectedProject.description}</p>
                   </div>
 
-                  <div className="space-y-6 flex-1">
+                  <div className="space-y-6">
                     <div>
-                      <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">Description</h4>
-                      <p className="text-lg leading-relaxed text-foreground/90">
-                        {selectedProject.description}
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">Technologies</h4>
+                      <h4 className="font-semibold mb-3">Tech Stack</h4>
                       <div className="flex flex-wrap gap-2">
                         {selectedProject.stack.map(tech => (
-                          <Badge key={tech} variant="secondary">{tech}</Badge>
+                          <Badge key={tech} variant="outline" className="text-sm py-1 px-3 border-primary/20 bg-primary/5">{tech}</Badge>
                         ))}
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-6 border-t flex gap-4">
-                    <Button size="lg" className="flex-1 w-full text-base font-semibold">
-                      Visit Project <ExternalLink className="ml-2 w-4 h-4" />
+                  <div className="mt-auto pt-8 flex gap-4">
+                    <Button className="w-full gap-2 rounded-full" asChild>
+                      <div className="cursor-pointer">
+                        I want a similar project <ExternalLink className="w-4 h-4" />
+                      </div>
                     </Button>
                   </div>
                 </div>
@@ -167,6 +173,6 @@ export default function Projects() {
         </Dialog>
 
       </div>
-    </section>
+    </section >
   );
 }
